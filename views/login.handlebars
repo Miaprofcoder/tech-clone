@@ -1,0 +1,24 @@
+{{> navbar}}
+
+<login>
+
+  <form class="m-5" id="loginForm">
+    <h2 class="mb-4">Login</h2>
+    <div class="mb-3">
+      <label for="loginUsername" class="form-label">Username</label>
+      <input type="text" class="form-control" id="loginUsername">
+    </div>
+    <div class="mb-3">
+      <label for="loginPassword" class="form-label">Password</label>
+      <input type="password" class="form-control" id="loginPassword">
+    </div>
+    <button type="submit" class="btn btn-primary" id="loginSubmitBtn">Login</button>
+    <a class="btn btn-secondary ms-4" id="registerRenderBtn" href="/register">Want to create an account?</a>
+  </form>
+
+</login>
+
+{{> bootstrapjs}}
+{{> axios}}
+
+<script src="./js/login.js"></script>

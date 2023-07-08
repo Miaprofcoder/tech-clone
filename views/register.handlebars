@@ -1,0 +1,26 @@
+{{> navbar}}
+
+<register>
+
+  <form class="m-5" id="registerForm">
+    <h2 class="mb-4">Register</h2>
+    <div class="mb-3">
+      <label for="regUsername" class="form-label">Username</label>
+      <input type="text" class="form-control" id="regUsername" aria-describedby="emailHelp">
+      <div id="usernameHelp" class="form-text">Username must be unique.</div>
+    </div>
+    <div class="mb-3">
+      <label for="regPassword" class="form-label">Password</label>
+      <input type="password" class="form-control" id="regPassword">
+      <div id="usernameHelp" class="form-text">Password must be at least 6 characters long.</div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="registerSubmit">Register</button>
+    <a class="btn btn-secondary ms-4" id="loginRenderBtn" href="/login">Want to Login?</a>
+  </form>
+
+</register>
+
+{{> bootstrapjs}}
+{{> axios}}
+
+<script src="./js/register.js"></script>
