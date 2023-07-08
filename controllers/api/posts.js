@@ -10,9 +10,9 @@ router.post("/create", withAuth, async (req, res) => {
       user_id: req.session.userId,
     });
 
-    res.status(200).json({message: "Post created!", response})
+    res.status(200).json({ message: "Post created!", response });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json(err);
   }
 });

@@ -1,8 +1,19 @@
 {{> navbar }}
 
-<div class="card m-5 border-light">
-  <div class="card-body text-center fs-3 m-auto text-light">
-    Latest posts
+<div class="card m-5 border-secondary">
+<div class="card-header text-center text-light fs-2">Latest posts</div> 
+  <div class="card-body">
+    {{#each posts as |post|}}
+      <div class="card m-2">
+        <div class="card-header fs-3">
+          {{post.title}} by {{post.user.username}}
+        </div>
+        <div class="card-body">
+          <h4 class="fs-4">{{post.content}}</h4>
+          <small>Created: {{post.createdAt}}</small>
+        </div>
+      </div>
+    {{/each}}
   </div>
 </div>
 
