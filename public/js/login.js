@@ -6,14 +6,19 @@ const login = async (event) => {
   const password = document.getElementById("loginPassword").value;
 
   if (username && password) {
-    const response = await axios.post("/api/user/login", {
-      username,
-      password,
-    });
+    try {
+      const response = await axios.post("/api/user/login", {
+        username,
+        password,
+      });
 
-    if (response.status === 200) {
-      alert("Account Logged In!");
-      window.location.replace("/");
+      if (response.status === 200) {
+        alert("Account Logged In!");
+        window.location.replace("/");
+      }
+    } catch (err) {
+      alert("Username or password invalid!");
+      window.location.reload();
     }
   } else alert("Username or password invalid!");
 };
