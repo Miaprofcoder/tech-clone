@@ -51,4 +51,23 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(200).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+router.get("/auth", (req, res) => {
+  if (req.session.loggedIn) {
+    const username = req.session.username;
+    res.status(200).json({ message: "Logged In", username });
+  } else {
+    res.status(404).json({ message: "Not Logged In!" });
+  }
+});
+
 module.exports = router;

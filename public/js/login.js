@@ -2,8 +2,8 @@ const loginFormEl = document.getElementById("loginForm");
 
 const login = async (event) => {
   event.preventDefault();
-  const username = document.getElementById("inputUsername").value;
-  const password = document.getElementById("inputPassword").value;
+  const username = document.getElementById("loginUsername").value;
+  const password = document.getElementById("loginPassword").value;
 
   if (username && password) {
     const response = await axios.post("/api/user/login", {

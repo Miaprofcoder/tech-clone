@@ -5,15 +5,18 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/login", async (req, res) => {
-  res.render('login')
-})
+  res.render("login");
+});
 
 router.get("/register", async (req, res) => {
-  res.render('register')
-})
+  res.render("register");
+});
 
 router.get("/dashboard", async (req, res) => {
-  res.render('dashboard')
+  if (!req.session.loggedIn) {
+    res.render("login");
+  }
+  res.render("dashboard");
 });
 
 module.exports = router;
