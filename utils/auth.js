@@ -4,6 +4,6 @@ const withAuth = async (req, res, next) => {
   } else {
     res.status(404).json({ message: "Not Logged In!" });
   }
-}
+};
 
 module.exports = withAuth;

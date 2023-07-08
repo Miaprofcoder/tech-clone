@@ -13,9 +13,6 @@ router.get("/register", async (req, res) => {
 });
 
 router.get("/dashboard", async (req, res) => {
-  if (!req.session.loggedIn) {
-    res.render("login");
-  }
   res.render("dashboard");
 });
 
