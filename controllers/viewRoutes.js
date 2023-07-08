@@ -12,4 +12,8 @@ router.get("/register", async (req, res) => {
   res.render('register')
 })
 
+router.get("/dashboard", async (req, res) => {
+  res.render('dashboard')
+});
+
 module.exports = router;

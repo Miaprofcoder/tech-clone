@@ -1,0 +1,19 @@
+{{> navbar}}
+
+<div class="card m-5">
+  <div class="card-header fs-2">
+    New Post
+  </div>
+  <div class="card-body">
+    <form class="m-3" id="createPostForm">
+      <div class="mb-3">
+        <label for="postTitleInput" class="form-label">Post Title</label>
+        <input type="text" class="form-control" id="postTitleInput" placeholder="Post Title">
+      </div>
+      <div class="mb-3">
+        <textarea rows="5" cols="60" type="text" class="form-control" id="postContentInput" placeholder="Post Content"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Create Blog Post</button>
+    </form>
+  </div>
+</div>
