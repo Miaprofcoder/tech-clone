@@ -1,6 +1,6 @@
 {{> navbar}}
 
-<div class="card m-2">
+<div class="card m-2" data-id="{{id}}" id="userPost">
   <div class="card-header fs-3">
     <a>{{title}} by {{user.username}}</a>
   </div>
@@ -18,7 +18,7 @@
   <div class="card-body">
     <form class="m-3" id="createCommentForm">
       <div class="mb-3">
-        <textarea rows="5" cols="60" type="text" class="form-control" id="postContentInput"
+        <textarea rows="5" cols="60" type="text" class="form-control" id="commentContentInput"
           placeholder="Post Comment"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Create Comment</button>
@@ -28,3 +28,5 @@
 
 {{> bootstrapjs}}
 {{> axios}}
+
+<script src="./js/comment.js"></script>
