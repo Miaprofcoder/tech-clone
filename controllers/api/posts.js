@@ -17,4 +17,20 @@ router.post("/create", withAuth, async (req, res) => {
   }
 });
 
+router.put("/update/:id", withAuth, async (req, res) => {
+  try {
+    const updatedPost = await Post.update(
+      { title: req.body.title, content: req.body.content },
+      { where: { id: req.params.id } }
+    );
+
+    if (updatedPost) {
+      res.status(200).json(updatedPost);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

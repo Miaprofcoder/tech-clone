@@ -1,0 +1,34 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPostModal">
+  Edit Post
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="editPostModal" tabindex="-1" aria-labelledby="editPostModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="m-3" id="updatePostForm">
+          <div class="mb-3">
+            <label for="postTitleInput" class="form-label">Post Title</label>
+            <textarea rows="1" cols="1" type="text" class="form-control" id="updateTitleInput"
+              placeholder="Post Title">{{postData.title}}</textarea>
+          </div>
+          <div class="mb-3">
+            <textarea rows="5" cols="60" type="text" class="form-control" id="updateContentInput"
+              placeholder="Post Content">{{postData.content}}</textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelPostUpdate">Cancel
+          Changes</button>
+        <button type="button" class="btn btn-primary" id="submitPostUpdate">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

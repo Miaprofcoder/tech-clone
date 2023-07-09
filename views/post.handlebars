@@ -9,6 +9,9 @@
     <hr>
     <small>Created: {{postData.createdAt}}</small>
   </div>
+  <div class="card-footer my-2">
+    {{> editPost}}
+  </div>
 </div>
 
 <div class="card m-2">
@@ -44,9 +47,8 @@
   </div>
 </div>
 
-{{!-- <h1>{{comments.}}</h1> --}}
-
 {{> bootstrapjs}}
 {{> axios}}
 
 <script src="./js/comment.js"></script>
+<script src="./js/updatePost.js"></script>
