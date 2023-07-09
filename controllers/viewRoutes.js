@@ -43,20 +43,20 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [ User ],
+      include: [User],
       raw: true,
       nest: true,
     });
     const commentData = await Comment.findAll({
       where: { post_id: req.params.id },
-      include: [ User ],
+      include: [User],
       raw: true,
       nest: true,
     });
 
     if (postData) {
       // console.log({postData, commentData})
-      res.render("post", {postData, commentData});
+      res.render("post", { postData, commentData });
     } else res.status(404).json({ message: "404 Post not Found" });
   } catch (err) {
     console.log(err);

@@ -12,7 +12,7 @@ const newComment = async (event) => {
 
   if (createdComment.status === 200) {
     alert('Comment created!')
-    window.location.reload();
+    window.location.reload(true);
   }
 };
 

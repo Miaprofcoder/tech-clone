@@ -17,7 +17,7 @@ router.post("/create", withAuth, async (req, res) => {
   }
 });
 
-router.put("/update/:id", withAuth, async (req, res) => {
+router.put("/update/:id", async (req, res) => {
   try {
     const updatedPost = await Post.update(
       { title: req.body.title, content: req.body.content },
@@ -29,6 +29,18 @@ router.put("/update/:id", withAuth, async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.delete("/delete/:id", async (req, res) => {
+  try {
+    const deletedPost = await Post.destroy({ where: { id: req.params.id } });
+
+    if (deletedPost) {
+      res.status(200).json({ message: "Post deleted!" });
+    } else res.status(404).json({ message: "404: Post id not valid!" });
+  } catch (err) {
     res.status(500).json(err);
   }
 });

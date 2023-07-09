@@ -12,10 +12,23 @@ const updatePost = async () => {
     alert("Post updated!");
     window.location.reload();
     console.log(updatedPost);
-  } else {
+  } else if (updatedPost.status === 404){
     alert("There was an error updating your post!");
     console.log(updatedPost);
   }
 };
 
 updatePostBtn.addEventListener("click", updatePost);
+
+const editPostBtn = document.getElementById("editPostBtn");
+
+const authEditPostBtn = async () => {
+  const response = await fetch("/api/user/auth").then((data) => data.json());
+
+  if (response.message !== "Logged In") {
+    alert("Not Logged In!");
+    window.location.replace("/login");
+  }
+};
+
+editPostBtn.addEventListener("click", authEditPostBtn);

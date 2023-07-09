@@ -18,9 +18,9 @@ const login = async (event) => {
       }
     } catch (err) {
       alert("Username or password invalid!");
-      window.location.reload();
+      window.location.replace("/login");
     }
-  } else alert("Username or password invalid!");
+  } else alert("Enter Username or password.");
 };
 
 loginFormEl.addEventListener("submit", login);

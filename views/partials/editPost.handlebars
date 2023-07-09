@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPostModal">
+<button id="editPostBtn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPostModal">
   Edit Post
 </button>
 
@@ -25,6 +25,7 @@
         </form>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="deletePostBtn">Delete Post</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelPostUpdate">Cancel
           Changes</button>
         <button type="button" class="btn btn-primary" id="submitPostUpdate">Save changes</button>

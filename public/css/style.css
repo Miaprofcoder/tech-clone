@@ -1,0 +1,30 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer{
+    margin-top: auto;
+}
+
+login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+
+login > form {
+  width: 80%;
+}
+
+register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+
+register > form {
+  width: 80%;
+}
