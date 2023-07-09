@@ -1,0 +1,30 @@
+{{> navbar}}
+
+<div class="card m-2">
+  <div class="card-header fs-3">
+    <a>{{title}} by {{user.username}}</a>
+  </div>
+  <div class="card-body">
+    <h4 class="fs-4 mb-5">{{content}}</h4>
+    <hr>
+    <small>Created: {{createdAt}}</small>
+  </div>
+</div>
+
+<div class="card m-2">
+  <div class="card-header fs-3">
+    Leave a comment:
+  </div>
+  <div class="card-body">
+    <form class="m-3" id="createCommentForm">
+      <div class="mb-3">
+        <textarea rows="5" cols="60" type="text" class="form-control" id="postContentInput"
+          placeholder="Post Comment"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Create Comment</button>
+    </form>
+  </div>
+</div>
+
+{{> bootstrapjs}}
+{{> axios}}

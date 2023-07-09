@@ -5,8 +5,12 @@ const { Post, User } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    const posts = await Post.findAll({ include: [User], raw: true, nest: true });
-    console.log(posts)
+    const posts = await Post.findAll({
+      include: [User],
+      raw: true,
+      nest: true,
+    });
+    console.log(posts);
     res.render("home", { posts });
   } catch (err) {
     res.status(500).json(err);
@@ -32,6 +36,20 @@ router.get("/dashboard", withAuth, async (req, res) => {
     res.render("dashboard", posts);
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/post/:id", withAuth, async (req, res) => {
+  try {
+    const response = await Post.findByPk(req.params.id, { include: [User] });
+    const postData = response.get({ plain: true });
+    if (postData) {
+      console.log(postData)
+      res.render("post", postData);
+    } else res.status(404).json({ message: "404 Post not Found" });
+  } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
