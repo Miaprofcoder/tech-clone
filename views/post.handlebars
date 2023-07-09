@@ -1,13 +1,13 @@
 {{> navbar}}
 
-<div class="card m-2" data-id="{{id}}" id="userPost">
+<div class="card m-2" data-id="{{postData.id}}" id="userPost">
   <div class="card-header fs-3">
-    <a>{{title}} by {{user.username}}</a>
+    <a>{{postData.title}} by {{postData.user.username}}</a>
   </div>
   <div class="card-body">
-    <h4 class="fs-4 mb-5">{{content}}</h4>
+    <h4 class="fs-4 mb-5">{{postData.content}}</h4>
     <hr>
-    <small>Created: {{createdAt}}</small>
+    <small>Created: {{postData.createdAt}}</small>
   </div>
 </div>
 
@@ -25,6 +25,26 @@
     </form>
   </div>
 </div>
+
+<div class="card m-2" id="commentCard">
+  <div class="card-header fs-3">
+    Comments
+  </div>
+  <div class="card-body">
+    {{#each commentData as |comments|}}
+    <div class="card my-3">
+      <div class="card-header fs-4">{{comments.user.username}} commented</div>
+      <div class="card-body">
+        <h5 class="fs-5">{{comments.comment}}</h5>
+        <hr>
+        <small>Created: {{comments.createdAt}}</small>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+{{!-- <h1>{{comments.}}</h1> --}}
 
 {{> bootstrapjs}}
 {{> axios}}

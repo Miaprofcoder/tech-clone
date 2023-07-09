@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const axios = require("axios");
 const withAuth = require("../utils/auth");
-const { Post, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -42,14 +42,24 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const response = await Post.findByPk(req.params.id, { include: [User] });
-    const postData = response.get({ plain: true });
+    const postData = await Post.findByPk(req.params.id, {
+      include: [ User ],
+      raw: true,
+      nest: true,
+    });
+    const commentData = await Comment.findAll({
+      where: { post_id: req.params.id },
+      include: [ User ],
+      raw: true,
+      nest: true,
+    });
+
     if (postData) {
-      console.log(postData)
-      res.render("post", postData);
+      // console.log({postData, commentData})
+      res.render("post", {postData, commentData});
     } else res.status(404).json({ message: "404 Post not Found" });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json(err);
   }
 });
