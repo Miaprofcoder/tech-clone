@@ -11,6 +11,7 @@ Provide a short description explaining the what, why, and how of your project. U
 ## Installation
 
 No installation is needed to access this application. To access the application, [Click here.](https://tech-blog-epicasino-d449c2752498.herokuapp.com/)
+
 ## Usage
 
 **When first visiting the application, you will be presented with the homepage**
